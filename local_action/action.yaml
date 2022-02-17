@@ -1,0 +1,9 @@
+name: test
+description: test
+runs:
+  using: composite
+  steps:
+    - name: ok
+      shell: bash
+      run: |
+        echo "OK"
