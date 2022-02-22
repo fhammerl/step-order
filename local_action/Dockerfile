@@ -1,5 +1,5 @@
 FROM ubuntu:latest
 
-apt-get install jq
+RUN apt-get install jq
 
 ENTRYPOINT [ "entrypoint.sh" ]
