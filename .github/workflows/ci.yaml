@@ -1,10 +1,15 @@
 name: CI
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
+  #pull_request:
+    #branches: [ main ]
   workflow_dispatch:
+    inputs:
+      github_context:
+        description: 'github_context'
+        required: true
+        default: ${{ toJSON(github) }}
 
 jobs:
   build:
@@ -12,5 +17,5 @@ jobs:
     steps:
     - name: test
       run: |
-        echo '${{ toJSON(github) }}'
+        echo '${{ inputs.github_context }}'
 
