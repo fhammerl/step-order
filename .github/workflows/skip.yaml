@@ -1,0 +1,62 @@
+name: ay_test_condition
+
+on:
+  workflow_dispatch:
+    inputs:
+      build_skip:
+        description: 'skip maven and chart builder'
+        required: true
+        default: false
+        type: boolean  
+      test_skip:
+        description: 'skip product integration tests'
+        required: true
+        default: false
+        type: boolean
+  push:
+    inputs:
+      build_skip:
+        description: 'skip maven and chart builder'
+        required: true
+        default: false
+        type: boolean  
+      test_skip:
+        description: 'skip product integration tests'
+        required: true
+        default: false
+        type: boolean
+
+# workflow level env
+env:
+  BUILD_SKIP: ${{ github.event.inputs.build_skip == 'true' }}
+  TEST_SKIP: ${{ github.event.inputs.test_skip == 'true' }} 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display build environment
+        id: displayBuildEnv
+        shell: bash
+        run: |
+          echo "build_skip: ${{ github.event.inputs.build_skip }}";
+          echo "env.BUILD_SKIP: ${{ env.BUILD_SKIP }}";
+          echo "test_skip : ${{ github.event.inputs.test_skip }}";
+          echo "env.TEST_SKIP: ${{ env.TEST_SKIP }}";
+      
+      - name: build something
+# works fine here (at workflow.job.step level)      
+        if: ${{ env.BUILD_SKIP == 'false' }}
+        run: |
+          echo "Building something"   
+
+  test:
+    needs: build
+# does not work here (at workflow.job-workflow_caller)    
+#    if: ${{ env.TEST_SKIP == 'false' }}
+# this should work ?
+    if: ${{ github.event.inputs.test_skip == 'false' }}
+    uses: ./.github/workflows/ay_test-workflow2.yml
+    with:
+      teststatus: true 
