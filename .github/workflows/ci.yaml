@@ -12,6 +12,13 @@ on:
         default: ${{ toJSON(github) }}
 
 jobs:
+  test-job:
+    name: Use double quotes
+    if: github.event_name != "workflow_dispatch"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
   build:
     runs-on: [ macos-latest ]
     steps:
