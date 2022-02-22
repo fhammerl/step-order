@@ -1,9 +1,16 @@
-name: test
-description: test
+name: 'To JSON'
+
+description: 'Desc'
+
+inputs:
+  github_context:
+    decription: 'github context'
+    required: true
+    default: ${{ toJSON(github) }}
+    
 runs:
-  using: composite
-  steps:
-    - name: ok
-      shell: bash
-      run: |
-        echo "OK"
+  using: docker
+  image: 'Dockerfile'
+  args:
+  - '${{ inputs.github_context }}'
+    
