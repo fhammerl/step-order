@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: [ macos-latest ]
-    run: |
-      echo 'test'
+		steps:
+		- name: test
+			run: |
+				echo 'test'
 
