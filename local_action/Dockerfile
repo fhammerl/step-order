@@ -1,3 +1,3 @@
 FROM ubuntu:latest
 
-ENTRYPOINT [ "entrypoint.sh" ]
+ENTRYPOINT [ "./entrypoint.sh" ]
