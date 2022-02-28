@@ -6,4 +6,6 @@ description: 'Desc'
 runs:
   using: docker
   image: 'Dockerfile'
+  args:
+    - "hello"
 
