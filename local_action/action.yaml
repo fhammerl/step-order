@@ -2,15 +2,8 @@ name: 'To JSON'
 
 description: 'Desc'
 
-inputs:
-  github_context:
-    decription: 'github context'
-    required: true
-    default: ${{ toJSON(github) }}
-    
+
 runs:
   using: docker
   image: 'Dockerfile'
-  args:
-  - '${{ inputs.github_context }}'
-    
+
