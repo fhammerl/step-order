@@ -12,5 +12,5 @@ jobs:
     name: docker action
     steps:
       - name: Docker
-        uses: ./local_action
+        uses: local_action
 
