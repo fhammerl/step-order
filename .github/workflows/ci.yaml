@@ -15,6 +15,3 @@ jobs:
         uses: actions/checkout@v2
       - name: Docker
         uses: ./local_action
-        args:
-          - "hello"
-
