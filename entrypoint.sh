@@ -1,1 +1,1 @@
-uname -a
+echo `uname -a`
