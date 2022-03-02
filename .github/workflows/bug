@@ -1,0 +1,16 @@
+name: Bug
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - id: step1
+        run: echo '::set-output name=json::{"a":1}'
+        if: false
+      - run: echo $A
+        env:
+          A: ${{ fromJSON(steps.step1.outputs.json).a }}
+        if: false
