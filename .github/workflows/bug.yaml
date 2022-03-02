@@ -12,5 +12,5 @@ jobs:
         if: false
       - run: echo $A
         env:
-          A: ${{ fromJSON(steps.step1.outputs.json) && fromJSON(steps.step1.outputs.json).a }}
+          A: ${{ fromJSON(steps.step1.outputs.json) }}
         if: false
