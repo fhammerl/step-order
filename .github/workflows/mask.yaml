@@ -17,8 +17,8 @@ jobs:
           shell: pwsh
           run: |
             $secret = "SuperSecret"
-            echo "::add-mask::$$secret"
-            echo "::set-output name=secret::$$secret"
+            echo "::add-mask::$secret"
+            echo "::set-output name=secret::$secret"
   build:
     name: Build
     runs-on: ubuntu-latest
