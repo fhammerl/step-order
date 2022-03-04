@@ -27,5 +27,5 @@ jobs:
       - name: Run tests
         shell: pwsh
         env:
-          SomeEnv: ${{ needs.prepare.outputs.secret}}          
-        run: echo ${{ needs.prepare.outputs.secret}} 
+          SomeEnv: ${{ needs.setup.outputs.secret }}          
+        run: echo ${{ needs.setup.outputs.secret }} 
