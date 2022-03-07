@@ -1,0 +1,14 @@
+name: Testspace
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Job name'
+        required: true
+jobs:
+  job-example:
+    if: github.job == github.event.inputs.name 
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+        echo example "${{ github.job }}" job run
