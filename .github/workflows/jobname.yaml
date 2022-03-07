@@ -6,8 +6,8 @@ on:
         description: 'Job name'
         required: true
 jobs:
-  job-example:
-    if: github.job == github.event.inputs.name 
+  test:
+    #if: github.job == github.event.inputs.name 
     runs-on: ubuntu-latest
     steps:
       - run: echo example ${{ github.job }} job run
