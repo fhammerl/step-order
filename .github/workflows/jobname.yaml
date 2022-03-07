@@ -10,5 +10,4 @@ jobs:
     if: github.job == github.event.inputs.name 
     runs-on: ubuntu-latest
     steps:
-      - run: |
-        echo example "${{ github.job }}" job run
+      - run: echo example ${{ github.job }} job run
