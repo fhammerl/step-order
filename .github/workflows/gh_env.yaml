@@ -13,9 +13,7 @@ jobs:
       - name: repro
         if: github.base_ref == 'main' || github.ref == 'refs/heads/main'
         run: |
-          pwd
           echo $GITHUB_ENV
-          #echo "ENV_NAME_1=prod" >> $GITHUB_ENV
       - name: Set env to prod
         run: |
           pwd
