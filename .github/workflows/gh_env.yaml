@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: repro
-        if: github.base_ref == 'master' || github.ref == 'refs/heads/master'
+        if: github.base_ref == 'main' || github.ref == 'refs/heads/main'
         run: echo "ENV_NAME_1=prod" >> $GITHUB_ENV
       - name: Set env to prod
         run: |
