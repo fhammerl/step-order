@@ -7,10 +7,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: repro
+        if: github.base_ref == 'master' || github.ref == 'refs/heads/master'
+        run: echo "ENV_NAME_1=prod" >> $GITHUB_ENV
       - name: Set env to prod
         run: |
           pwd
           echo $GITHUB_ENV
           echo "ENV_NAME=prod" >> $GITHUB_ENV
       - name: Echo ENV_NAME
-        run: echo $ENV_NAME
+        run: |
+          echo $ENV_NAME $ENV_NAME_1
