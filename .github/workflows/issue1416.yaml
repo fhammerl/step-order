@@ -12,4 +12,4 @@ jobs:
     name: docker action
     steps:
       - name: Action a
-        uses: ./action-a
+        uses: ./.github/action-a
