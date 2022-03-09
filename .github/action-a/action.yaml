@@ -1,0 +1,9 @@
+name: 'Action A'
+
+description: 'Action a'
+
+
+runs:
+  using: docker
+  image: './../docker/Dockerfile.a'
+
