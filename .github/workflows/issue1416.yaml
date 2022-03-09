@@ -11,7 +11,9 @@ jobs:
     runs-on: self-hosted
     name: docker action
     steps:
+      - name: checkout
+        uses: actions/checkout@v2
       - name: Action a
-        using: ../action-a
+        uses: ./.github/action-a
       - name: Root action
         using: ./
