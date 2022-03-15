@@ -2,5 +2,5 @@
 
 echo "HELO"
 echo "Hello $1"
-ls -la /home/nikola
+ls -la /home
 echo `uname -a`
