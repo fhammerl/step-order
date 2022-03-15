@@ -5,7 +5,7 @@ description: 'Desc'
 
 runs:
   using: docker
-  image: Dockerfile.docker
+  image: old.Dockerfile
     # args:
     # - '\" -v /home/nikola:/home/nikola #'
 
